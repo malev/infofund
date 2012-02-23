@@ -30,7 +30,8 @@
     .container
       .hero-unit
         %h1 Hello, world!
-        %p This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+        %p
+          = yield_content :hero
         %p
           %a.btn.btn-primary.btn-large Learn more
       .row
@@ -54,4 +55,6 @@
         = yield
       %hr
       %footer
-        %p Company 2012
+        %p
+          %a{:href => "http://blog.malev.com.ar"} malev
+          2012
