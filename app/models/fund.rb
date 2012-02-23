@@ -35,4 +35,17 @@ class Fund
     end
     pre_text.gsub(/[\.\,]/, ',' => '.', '.' => '').to_f
   end
+
+  def daily
+    quotations.last
+  end
+
+  def daily_value_variation 
+    output = []
+    @quotations ||= self.quotations.all
+    @quotations.each do |q|
+      output << [q.str_date, q.value_at_date, q.daily_variation]
+    end
+    output
+  end
 end

@@ -3,6 +3,20 @@ Infofund.controllers  do
     @funds = Fund.all
     render 'index'
   end
+
+  get '/daily' do
+    @funds = Fund.all
+    render 'daily'
+  end
+
+  get :fund, :with => :id, :provides => :json do
+    @fund = Fund.find(params[:id])
+
+    {
+      :name => @fund.name,
+      :values => @fund.daily_value_variation
+    }.to_json
+  end
   # get :index, :map => "/foo/bar" do
   #   session[:foo] = "bar"
   #   render 'index'

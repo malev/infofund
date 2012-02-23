@@ -10,49 +10,54 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
-    %title= [@title, "Padrino Sample Blog"].compact.join(" | ")
+    %title= [@title, "InfoFund"].compact.join(" | ")
     = stylesheet_link_tag 'bootstrap.css', 'bootstrap-responsive'
-    = javascript_include_tag 'bootstrap.min'
+    = javascript_include_tag "https://www.google.com/jsapi"
+    = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'
+    = javascript_include_tag 'bootstrap.min', 'bootstrap-dropdown', 'application'
     = yield_content :include
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          %a{ :class => "brand", :href => "/"} Project name
+          %a{ :class => "brand", :href => "/"} InfoFund
           .nav-collapse
             %ul.nav
               %li.active
                 %a{:href => '/'} Home
               %li
-                %a About
+                %a{:href => '/daily'} Daily
               %li
-                %a Contact
+                %a{:href => 'http://blog.malev.com.ar'} About
+              %li
+                %a{:href => 'http://blog.malev.com.ar'} Contact
     .container
-      .hero-unit
-        %h1 Hello, world!
-        %p
-          = yield_content :hero
-        %p
-          %a.btn.btn-primary.btn-large Learn more
-      .row
-        .span4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      - if content_for?(:hero)
+        .hero-unit
+          %h1 Hello, world!
           %p
-            %a.btn{:href => "#"} View details
-        .span4
-          %h2 Heading
-          %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            = yield_content :hero
           %p
-            %a.btn{:href => "#"} View details
-        .span4
-          %h2 Heading
-          %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          %p
-            %a.btn{:href => "#"} View details
-      %hr
-      .row
-        = yield
+            %a.btn.btn-primary.btn-large Learn more
+      - if content_for?(:row)
+        .row
+          yield_content :row
+          .span4
+            %h2 Heading
+            %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            %p
+              %a.btn{:href => "#"} View details
+          .span4
+            %h2 Heading
+            %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            %p
+              %a.btn{:href => "#"} View details
+          .span4
+            %h2 Heading
+            %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+            %p
+              %a.btn{:href => "#"} View details
+      = yield
       %hr
       %footer
         %p
