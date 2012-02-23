@@ -1,0 +1,15 @@
+defaults: &defaults
+  host: localhost
+  port: 27017
+  username: username
+  password: password
+  database: database_name
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
