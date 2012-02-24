@@ -1,3 +1,4 @@
+.rvm*
 .DS_Store
 log/**/*
 tmp/**/*
