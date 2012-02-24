@@ -45,7 +45,7 @@ class Fund
     output = []
     @quotations ||= self.quotations.all
     @quotations.each do |q|
-      output << [q.str_date, q.value_at_date, q.daily_variation]
+      output << [q.str_date, q.value_at_date/1000, q.daily_variation]
     end
     output
   end
