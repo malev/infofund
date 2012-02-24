@@ -1,27 +1,28 @@
 - content_for :hero do
-  %select.fund_name
-    - @funds.each do |fund|
-      %option{:value => fund.id}
-        = fund.name
-  :javascript
-    var algo = "";
+  %h2
+    Quotation
+  %p
+    Pick a found
+    %select.fund_name
+      - @funds.each do |fund|
+        %option{:value => fund.id}
+          = fund.name
+    Favorites
+    %select.fund_name
+      - @user.funds.each do |fund|
+        %option{:value => fund.id}
+          = fund.name
+  %p
+    %script{:charset => "utf-8", :type => "text/javascript"}
+      google.setOnLoadCallback(function(){ reDrawGraph(#{{ :name => @funds.first.name, :values => @funds.first.daily_value_variation }.to_json})});
+    #chart_div{:style => 'width: 800px; height: 400px; margin: 0 auto;'}
+  %p
+    %h2
+      Daily value
+    %ul
+      - @user.accounts.each do |account|
+        %li
+          $ #{account.fund.name}: #{"%6.2f" % account.daily_value}
+    %h3
+      Total: #{"%6.2f" % @user.total}
 
-  #chart_div{:style => 'width: 900px; height: 500px;'}
-
-#menu1.dropdown
-  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#menu1", :class => "btn btn-primary dropdown-toggle"}
-    Dropdown
-    %b.caret
-  %ul.dropdown-menu
-    %li
-      %a{:href => "#"} Action
-    %li
-      %a{:href => "#"} Another action
-    %li
-      %a{:href => "#"} Something else here
-    %li.divider
-    %li
-      %a{:href => "#"} Separated link
-
-:javascript
-  $('.dropdown-toggle').dropdown()

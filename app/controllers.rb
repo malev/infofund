@@ -1,12 +1,23 @@
 Infofund.controllers  do
   get "/" do
+    @location = "home"
     @funds = Fund.all
+    @user = User.first
     render 'index'
   end
 
   get '/daily' do
+    @location = "daily"
     @funds = Fund.all
     render 'daily'
+  end
+
+  get '/contact' do
+    @location = "contact"
+  end
+
+  get '/about' do
+    @location = "about"
   end
 
   get :fund, :with => :id, :provides => :json do

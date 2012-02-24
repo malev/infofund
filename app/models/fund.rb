@@ -2,6 +2,7 @@ class Fund
   include Mongoid::Document
   
   embeds_many :quotations
+  has_and_belongs_to_many :users
   
   field :name, :type => String
 

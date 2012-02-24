@@ -3,6 +3,7 @@
 
 %p
   Quoted at
+  = @funds.first.daily.quoted_at.strftime("%A %d, %B %Y")
 
 %table{:class => "table table-striped table-bordered table-condensed"}
   %thead

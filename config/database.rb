@@ -33,7 +33,7 @@ end
 Mongoid.database = Mongo::Connection.new(host, port).db(database_name)
 auth = Mongoid.database.authenticate(username, password)
 
-
+Mongoid.logger = Padrino.logger
 # You can also configure Mongoid this way
 # Mongoid.configure do |config|
 #   name = @settings["database"]
