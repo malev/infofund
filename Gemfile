@@ -30,3 +30,4 @@ gem 'padrino', '0.10.6.c'
 # end
 
 gem 'nokogiri'
+gem 'padrino-warden'
