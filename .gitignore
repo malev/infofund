@@ -9,4 +9,3 @@ vendor/gems/*
 config/mongoid.yml
 *~
 *.*~
-Gemfile.lock
