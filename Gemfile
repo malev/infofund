@@ -31,3 +31,5 @@ gem 'padrino', '0.10.6.c'
 
 gem 'nokogiri'
 gem 'padrino-warden'
+
+gem 'capistrano', :group => :development, :require => false
