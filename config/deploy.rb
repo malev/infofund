@@ -51,4 +51,6 @@ namespace :deploy do
   end
 end
 
-after "deploy:restart"
+after do 
+  "deploy:restart"
+end
