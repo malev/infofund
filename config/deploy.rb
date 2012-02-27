@@ -18,7 +18,6 @@ set :normalize_asset_timestamps, false
 set :scm, :git
 set :repository, "git://github.com/malev/infofund.git"
 set :branch, "master"
-set :deploy_via, :remote_cache
 set :scm_verbose, true
 set :use_sudo, false
 set :ssh_options, :forward_agent => true
