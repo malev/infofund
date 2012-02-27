@@ -37,6 +37,10 @@ class Fund
     pre_text.gsub(/[\.\,]/, ',' => '.', '.' => '').to_f
   end
 
+  def self.loaded_at?(str_date)
+    Fund.where("quotations.str_date" => str_date).first
+  end
+
   def daily
     quotations.last
   end
