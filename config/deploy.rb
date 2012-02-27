@@ -1,5 +1,5 @@
 require 'bundler/capistrano'
-require "whenever/capistrano"
+#require "whenever/capistrano"
 
 set :application, "infofund"
 set :rvm_ruby_string, '1.9.2@infofund'
