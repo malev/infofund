@@ -28,29 +28,22 @@ set :use_sudo, false
 set :ssh_options, :forward_agent => true
 
 set :user, "malev"
-set :keep_releases, 7
+set :keep_releases, 5
 
 namespace :deploy do
-  desc "restarting"
-  task :restart do
-    run "touch #{current_path}/tmp/restart.txt"
-  end
-
-  desc "symlink vendor to shared vendor"
-  task :symlink_vendor_to_shared_vendor do
-    run "ln -s #{current_path}/../shared/vendor #{current_path}/vendor"
-  end
-
-  desc "trust rvmrc"
-  task :trust_rvmrc do
-    run "rvm rvmrc trust #{release_path}"
+  desc "symlink to mongoid.yml"
+  task :create_symlink do
+    run "ln -nfs #{deploy_to}/shared/config/mongoid.yml #{release_path}/config/mongoid.yml"
   end
 
   task :migrate do
     puts "no mgirations"
   end
+
+  desc "restarting"
+  task :restart do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
 end
 
-after do 
-  "deploy:restart"
-end
+after 'deploy:update_code', 'deploy:create_symlink', 'deploy:restart'
