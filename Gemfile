@@ -33,3 +33,5 @@ gem 'nokogiri'
 gem 'padrino-warden'
 
 gem 'capistrano', :group => :development, :require => false
+
+gem 'whenever', :require => false
