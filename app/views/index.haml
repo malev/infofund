@@ -7,8 +7,11 @@
       - @funds.each do |fund|
         %option{:value => fund.id}
           = fund.name
+    %br
     Favorites
     %select.fund_name
+    %option
+      ""
       - @user.funds.each do |fund|
         %option{:value => fund.id}
           = fund.name
@@ -16,13 +19,3 @@
     %script{:charset => "utf-8", :type => "text/javascript"}
       google.setOnLoadCallback(function(){ reDrawGraph(#{{ :name => @funds.first.name, :values => @funds.first.daily_value_variation }.to_json})});
     #chart_div{:style => 'width: 800px; height: 400px; margin: 0 auto;'}
-  %p
-    %h2
-      Daily value
-    %ul
-      - @user.accounts.each do |account|
-        %li
-          $ #{account.fund.name}: #{"%6.2f" % account.daily_value}
-    %h3
-      Total: #{"%6.2f" % @user.total}
-

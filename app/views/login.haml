@@ -1,0 +1,9 @@
+%form.well{:action => "/login", :method => "post"}
+  %label Login
+  %input.span3{:name => "username", :placeholder => "Username...", :type => "text"}
+  %br
+  %input.span3{:name => "password", :type => "password"}
+  %label.checkbox
+    %input{:type => "checkbox"}
+      Remember me!
+  %button.btn{:type => "submit"} Submit
