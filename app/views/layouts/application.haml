@@ -12,8 +12,7 @@
       }
     %title= [@title, "InfoFund"].compact.join(" | ")
     = stylesheet_link_tag 'bootstrap.css', 'bootstrap-responsive', 'styles'
-    = javascript_include_tag "https://www.google.com/jsapi"
-    = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'
+    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', 'http://code.highcharts.com/highcharts.js', 'http://code.highcharts.com/modules/exporting.js'
     = javascript_include_tag 'bootstrap.min', 'bootstrap-dropdown', 'application'
     = yield_content :include
   %body
@@ -31,16 +30,6 @@
                 %a{:href => 'http://blog.malev.com.ar'} About
               %li{:class => active_if_is('contact')}
                 %a{:href => 'http://blog.malev.com.ar'} Contact
-            - if true
-              %ul.nav.pull-right
-                %li.divider-vertical
-                %li
-                  %a{:href => "/account"} My account
-          - if true
-            %form.navbar-search.pull-right{:action => '/login', :method => 'post'}
-              %input.input-small{:name => "email", :placeholder => "Email", :type => "text"}
-              %input.input-small{:name => "passoword", :type => "password"}
-              %button.btn{:type => "submit", :style => 'margin-top: -8px;'} Go
     .container
       - if content_for?(:hero)
         .hero-unit

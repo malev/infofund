@@ -45,12 +45,16 @@ class Fund
     quotations.last
   end
 
-  def daily_value_variation 
-    output = []
-    @quotations ||= self.quotations.all
-    @quotations.each do |q|
-      output << [q.str_date, q.value_at_date/1000, q.daily_variation]
-    end
-    output
+  def daily_variation
+    self.quotations.map { |q| q.daily_variation }
   end
+
+  def value_at_date
+    self.quotations.map { |q| q.value_at_date }
+  end
+
+  def dates
+    self.quotations.map { |q| q.str_date }
+  end
+
 end

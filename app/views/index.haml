@@ -1,21 +1,9 @@
 - content_for :hero do
   %h2
     Quotation
-  %p
-    Pick a found
-    %select.fund_name
-      - @funds.each do |fund|
-        %option{:value => fund.id}
-          = fund.name
-    %br
-    Favorites
-    %select.fund_name
-    %option
-      ""
-      - @user.funds.each do |fund|
-        %option{:value => fund.id}
-          = fund.name
-  %p
-    %script{:charset => "utf-8", :type => "text/javascript"}
-      google.setOnLoadCallback(function(){ reDrawGraph(#{{ :name => @funds.first.name, :values => @funds.first.daily_value_variation }.to_json})});
-    #chart_div{:style => 'width: 800px; height: 400px; margin: 0 auto;'}
+  %p#fun1{data: {title:@fund1.name, container: "container1", xserie: @fund1.dates, "value-at-date" => @fund1.value_at_date.to_json, "daily-variation" => @fund1.daily_variation.to_json}}
+    #container1{:style => "min-width: 400px; height: 400px; margin: 0 auto"}
+
+  %p#fun2{data: {title:@fund2.name, container: "container2", xserie: @fund2.dates, "value-at-date" => @fund2.value_at_date.to_json, "daily-variation" => @fund2.daily_variation.to_json}}
+    #container2{:style => "min-width: 400px; height: 400px; margin: 0 auto"}
+
