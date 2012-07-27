@@ -6,6 +6,7 @@ source :rubygems
 
 # Project requirements
 gem 'rake'
+gem 'capistrano'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 
 # Component requirements
