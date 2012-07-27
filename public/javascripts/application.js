@@ -3,16 +3,23 @@ $(function () {
   $(document).ready(function() {
     var $fund1 = $("#fun1");
     var $fund2 = $("#fun2");
+    var options = {
+      container: $fund1.data("container"),
+      title: $fund1.data("title"),
+      xserie: $fund1.data("xserie"),
+      dailyVariation: $fund1.data("daily-variation"),
+      valueAtDate: $fund1.data("value-at-date")
+    };
     chart1 = new Highcharts.Chart({
       chart: {
-        renderTo: $fund1.data("container"),
+        renderTo: options.container,
         zoomType: 'xy'
       },
       title: {
-        text: $fund1.data("title") 
+        text: options.title
       },
       xAxis: [{
-        categories: $fund1.data("xserie")
+        categories: options.xserie
       }],
       yAxis: [{
         labels: {
@@ -50,12 +57,12 @@ $(function () {
         color: '#4572A7',
         type: 'spline',
         yAxis: 1,
-        data: $fund1.data("daily-variation")
+        data: options.dailyVariation
       },{
         name: 'Value at date',
         color: '#89A54E',
         type: 'spline',
-        data: $fund1.data("value-at-date")
+        data: options.valueAtDate
       }]
     });
     chart2 = new Highcharts.Chart({
@@ -64,7 +71,7 @@ $(function () {
         zoomType: 'xy'
       },
       title: {
-        text: $fund2.data("title") 
+        text: $fund2.data("title")
       },
       xAxis: [{
         categories: $fund2.data("xserie")

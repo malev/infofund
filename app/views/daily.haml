@@ -24,7 +24,7 @@
     - @funds.each do |fund|
       %tr
         %td
-          = fund.name
+          = link_to fund.name, url_for(:show, fund.id)
         %td
           = fund.daily.value_at_date
         %td

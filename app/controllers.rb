@@ -12,6 +12,12 @@ Infofund.controllers  do
     render 'daily'
   end
 
+  get :show, with: :id do
+    @location = "home"
+    @fund = Fund.find(params[:id])
+    render 'show'
+  end
+
   get '/contact' do
     @location = "contact"
   end

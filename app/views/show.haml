@@ -1,0 +1,5 @@
+- content_for :hero do
+  %h2
+    = @fund.name
+  %p#fun1{data: {title:@fund.name, container: "container1", xserie: @fund.dates, "value-at-date" => @fund.value_at_date.to_json, "daily-variation" => @fund.daily_variation.to_json}}
+    #container1{:style => "min-width: 400px; height: 400px; margin: 0 auto"}
