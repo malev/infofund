@@ -1,15 +1,8 @@
-defaults: &defaults
-  host: localhost
-  port: 27017
-  username: username
-  password: password
-  database: database_name
-
 development:
-  <<: *defaults
-
-test:
-  <<: *defaults
-
-production:
-  <<: *defaults
+  sessions:
+    default:
+      hosts:
+        - localhost:27017
+      database: database
+      username: admin
+      password: secret

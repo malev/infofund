@@ -12,7 +12,7 @@ gem 'sinatra-flash', :require => 'sinatra/flash'
 # Component requirements
 gem 'haml'
 gem 'mongo'
-gem 'mongoid', '2.4.0'
+gem 'mongoid'
 gem 'bson_ext', :require => "mongo"
 
 # Test requirements
@@ -21,7 +21,7 @@ gem 'rspec', :group => "test"
 gem 'rack-test', :require => "rack/test", :group => "test"
 
 # Padrino Stable Gem
-gem 'padrino', '0.10.6.c'
+gem 'padrino'
 
 # Or Padrino Edge
 # gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
