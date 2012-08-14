@@ -1,3 +1,5 @@
+require 'open-uri'
+
 task :sync => :environment do
   url = "http://www.santanderrio.com.ar/individuos/inversiones_fondos_rendimiento.jsp"
   doc = Nokogiri::HTML(open(url))
