@@ -1,5 +1,6 @@
 require 'bundler/capistrano'
 require "whenever/capistrano"
+require "rvm/capistrano"
 
 set :application, "infofund"
 
@@ -8,6 +9,7 @@ set :rvm_ruby_string, '1.9.3@infofund'
 set :domain, "www.villabom.com.ar"
 set :environment, "production"
 set :deploy_to, "/home/malev/sites/#{application}"
+set :whenever_command, "bundle exec whenever"
 
 role :app, domain
 role :web, domain
