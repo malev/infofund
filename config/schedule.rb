@@ -24,3 +24,7 @@ set :output, File.expand_path(File.dirname(__FILE__)) + "/../log/cron.log"
 every 1.day, :at => "5 am" do
   command "cd #{File.expand_path(File.dirname(__FILE__)) + "/../"} && bundle exec padrino rake sync"
 end
+
+every 7.day, at: '7am' do
+  command "cd #{File.expand_path(File.dirname(__FILE__)) + "/../"} && bundle exec padrino rake backup"
+end
