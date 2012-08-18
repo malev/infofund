@@ -12,7 +12,7 @@ gem 'sinatra-flash', :require => 'sinatra/flash'
 # Component requirements
 gem 'haml'
 gem 'mongo'
-gem 'mongoid', '3.0.2'
+gem 'mongoid'
 gem 'bson_ext', :require => "mongo"
 
 # Test requirements
