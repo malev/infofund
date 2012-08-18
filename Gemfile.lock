@@ -124,7 +124,7 @@ DEPENDENCIES
   haml
   mocha
   mongo
-  mongoid (= 3.0.2)
+  mongoid
   nokogiri
   padrino
   padrino-warden
