@@ -4,7 +4,7 @@ require "whenever/capistrano"
 set :application, "infofund"
 
 set :user, "malev"
-set :rvm_ruby_string, '1.9.2@infofund'
+set :rvm_ruby_string, '1.9.3@infofund'
 set :domain, "www.villabom.com.ar"
 set :environment, "production"
 set :deploy_to, "/home/malev/sites/#{application}"
