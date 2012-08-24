@@ -1,0 +1,14 @@
+development:
+  sessions:
+    default:
+      hosts:
+        - localhost:27017
+      database: fund_information
+production:
+  sessions:
+    default:
+      database: <%= ENV['OPENSHIFT_APP_NAME'] %>
+      hosts:
+        - <%= ENV['OPENSHIFT_NOSQL_DB_HOST'] %>
+      username: <%= ENV['OPENSHIFT_NOSQL_DB_USERNAME'] %>
+      password: <%= ENV['OPENSHIFT_NOSQL_DB_PASSWORD'] %>
