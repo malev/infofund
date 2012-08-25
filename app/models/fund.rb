@@ -1,10 +1,13 @@
 class Fund
   include Mongoid::Document
-  
+
   embeds_many :quotations
   has_and_belongs_to_many :users
-  
-  field :name, :type => String
+
+  field :name,    type: String
+  field :starred, type: Boolean
+
+  scope :starred, where(starred: true)
 
   def self.process(tr, str_date)
     values = []

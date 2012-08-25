@@ -1,9 +1,6 @@
 - content_for :hero do
   %h2
     Quotation
-  %p#fun1{data: {title:@fund1.name, container: "container1", xserie: @fund1.dates, "value-at-date" => @fund1.value_at_date.to_json, "daily-variation" => @fund1.daily_variation.to_json}}
-    #container1{:style => "min-width: 400px; height: 400px; margin: 0 auto"}
-
-  %p#fun2{data: {title:@fund2.name, container: "container2", xserie: @fund2.dates, "value-at-date" => @fund2.value_at_date.to_json, "daily-variation" => @fund2.daily_variation.to_json}}
-    #container2{:style => "min-width: 400px; height: 400px; margin: 0 auto"}
-
+  - @funds.each_with_index do |fund, index|
+    %p{id: "fund#{index}", data: {title: fund.name, container: "container#{index}", xserie: fund.dates, "value-at-date" => fund.value_at_date.to_json, "daily-variation" => fund.daily_variation.to_json}}
+      %div{id:"container#{index}", :style => "min-width: 400px; height: 400px; margin: 0 auto"}

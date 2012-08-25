@@ -1,8 +1,7 @@
 Infofund.controllers  do
   get "/" do
     @location = "home"
-    @fund1 = Fund.find("4f4699236973e21129000011")
-    @fund2 = Fund.find("4f4699226973e21129000005")
+    @funds = Fund.starred
     render 'index'
   end
 

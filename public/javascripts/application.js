@@ -1,8 +1,8 @@
 $(function () {
   var chart;
   $(document).ready(function() {
-    var $fund1 = $("#fun1");
-    var $fund2 = $("#fun2");
+    var $fund1 = $("#fund0");
+    var $fund2 = $("#fund1");
     var options = {
       container: $fund1.data("container"),
       title: $fund1.data("title"),
