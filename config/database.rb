@@ -1,6 +1,6 @@
 require 'yaml'
 
-config = YAML.load_file("config/mongoid.yml")
+config = YAML.load(ERB.new(File.read(Padrino.root + "/config/mongoid.yml")).result)
 
 # Connection.new takes host, port
 host = ""
